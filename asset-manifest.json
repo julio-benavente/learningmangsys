@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/learningmangsys/static/css/main.c5a4ed9b.chunk.css",
+    "main.js": "/learningmangsys/static/js/main.5a5dc38b.chunk.js",
+    "main.js.map": "/learningmangsys/static/js/main.5a5dc38b.chunk.js.map",
+    "runtime-main.js": "/learningmangsys/static/js/runtime-main.8ad2091f.js",
+    "runtime-main.js.map": "/learningmangsys/static/js/runtime-main.8ad2091f.js.map",
+    "static/js/2.f37df932.chunk.js": "/learningmangsys/static/js/2.f37df932.chunk.js",
+    "static/js/2.f37df932.chunk.js.map": "/learningmangsys/static/js/2.f37df932.chunk.js.map",
+    "index.html": "/learningmangsys/index.html",
+    "precache-manifest.9fbf8983a0ff2d4fb5aa5a403b63b0f5.js": "/learningmangsys/precache-manifest.9fbf8983a0ff2d4fb5aa5a403b63b0f5.js",
+    "service-worker.js": "/learningmangsys/service-worker.js",
+    "static/css/main.c5a4ed9b.chunk.css.map": "/learningmangsys/static/css/main.c5a4ed9b.chunk.css.map",
+    "static/js/2.f37df932.chunk.js.LICENSE.txt": "/learningmangsys/static/js/2.f37df932.chunk.js.LICENSE.txt",
+    "static/media/005-analytics.svg": "/learningmangsys/static/media/005-analytics.16bb7025.svg",
+    "static/media/013-grid.svg": "/learningmangsys/static/media/013-grid.cfed8a17.svg",
+    "static/media/016-creativity.svg": "/learningmangsys/static/media/016-creativity.82024ac2.svg",
+    "static/media/018-launch.svg": "/learningmangsys/static/media/018-launch.13994e71.svg",
+    "static/media/022-rgb.svg": "/learningmangsys/static/media/022-rgb.c0738c0c.svg",
+    "static/media/035-mind.svg": "/learningmangsys/static/media/035-mind.8541b42b.svg",
+    "static/media/041-ideas.svg": "/learningmangsys/static/media/041-ideas.56d06092.svg",
+    "static/media/browser-3.svg": "/learningmangsys/static/media/browser-3.b5307237.svg",
+    "static/media/browser-5.svg": "/learningmangsys/static/media/browser-5.1f32baa1.svg",
+    "static/media/folder-1.svg": "/learningmangsys/static/media/folder-1.39c0b205.svg",
+    "static/media/network.svg": "/learningmangsys/static/media/network.85698e34.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8ad2091f.js",
+    "static/js/2.f37df932.chunk.js",
+    "static/css/main.c5a4ed9b.chunk.css",
+    "static/js/main.5a5dc38b.chunk.js"
+  ]
+}
