@@ -1,0 +1,405 @@
+@import "../../../Variables.scss";
+
+#courseSection {
+  display: grid;
+  min-height: 100vh;
+
+  #overview {
+    display: grid;
+    grid-template-columns: minmax(200px, 3fr) minmax(260px, 2fr);
+    grid-template-areas:
+      "titleSection level"
+      "details img"
+      "description img"
+      "skills img"
+      "button img"
+      "bar bar";
+    align-content: start;
+    gap: 14px;
+    margin-left: 5px;
+    background: $white;
+    padding: 20px 100px 60px;
+    align-self: start;
+
+    .titleSection {
+      grid-area: titleSection;
+    }
+
+    .details {
+      grid-area: details;
+      display: grid;
+      grid-auto-columns: auto;
+      grid-auto-flow: column;
+      justify-content: start;
+      margin-bottom: 10px;
+
+      .detailItem {
+        display: grid;
+        grid-auto-columns: auto;
+        grid-auto-flow: column;
+        margin-right: 25px;
+        color: $darkgray;
+        font-weight: 600;
+        font-size: 14px;
+
+        >.icon {
+          margin-right: 10px;
+        }
+      }
+    }
+
+    .courseDescription {
+      grid-area: description;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .skills {
+      grid-area: skills;
+      display: grid;
+      grid-auto-columns: auto;
+      grid-auto-flow: column;
+      justify-content: start;
+
+      .skill {
+        display: grid;
+        grid-auto-columns: auto;
+        grid-auto-flow: column;
+        margin-right: 25px;
+        align-items: center;
+
+        .skillImg {
+          margin-right: 10px;
+          width: 30px;
+          height: 30px;
+          background: $lightgray;
+          border-radius: 50%;
+          position: relative;
+
+          img {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 5px;
+          }
+
+          i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+
+        .skillDescription {
+          font-weight: bold;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .continueCourseBtn {
+      grid-area: button;
+      justify-self: start;
+      padding: 8px 16px;
+      border-radius: 100px;
+      background: $red;
+      color: $white;
+      border: none;
+      outline: none;
+      transition: $transition;
+      cursor: pointer;
+      margin-top: 20px;
+
+      &:active,
+      &:hover {
+        background: darken($red, 20%);
+      }
+    }
+
+    .courseLevel {
+      grid-area: level;
+      display: grid;
+      grid-auto-columns: auto;
+      grid-auto-flow: column;
+      justify-content: end;
+      align-items: center;
+
+      .courseLevelImg {
+        width: 35px;
+        height: 40px;
+        background: $red;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        position: relative;
+        margin-right: 20px;
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 120%;
+          height: 7px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: $yellow;
+          border-radius: 50px;
+          z-index: 4;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 4px;
+          width: 100%;
+          height: 7px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: transparentize(black, 0.7);
+          border-radius: 50px;
+          z-index: 2;
+        }
+
+        i {
+          position: absolute;
+          color: $white;
+          font-size: 16px;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -30%);
+        }
+      }
+
+      .courseLevelDescription {
+        font-weight: 600;
+        color: $darkgray;
+      }
+    }
+
+    .courseImg {
+      grid-area: img;
+      height: 100%;
+      max-height: 260px;
+      justify-self: end;
+      align-self: end;
+
+      i {
+        font-size: 15em;
+        color: $blue;
+      }
+    }
+
+    .courseBarProgress {
+      margin-top: 20px;
+      grid-area: bar;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-auto-rows: auto;
+      grid-template-areas:
+        "title achived"
+        "bar bar";
+
+      .title {
+        grid-area: title;
+        font-size: 14px;
+        font-weight: bold;
+        color: $darkgray;
+        margin-bottom: 10px;
+      }
+
+      .barProgress {
+        grid-area: bar;
+        background: $lightgray;
+        height: 10px;
+        border-radius: 5px;
+        align-self: center;
+        width: 100%;
+        // height: 20%;
+
+        >.progress {
+          border-radius: 5px;
+          height: 100%;
+          background: $yellow;
+          width: 50%;
+        }
+      }
+
+      .achived {
+        grid-area: achived;
+        font-size: 14px;
+        font-weight: bold;
+        color: $darkgray;
+      }
+    }
+  }
+
+  #lessons {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    align-content: start;
+    gap: 14px;
+    margin-left: 5px;
+    padding: 50px 100px 80px;
+    align-self: start;
+
+    .coursesWraper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, 350px);
+      align-content: start;
+      justify-content: start;
+
+      .courseCard {
+        display: grid;
+        grid-template-columns: 150px auto;
+        grid-template-rows: 40px 100px 30px;
+        gap: 10px;
+        margin: 10px 10px 20px 10px;
+        padding: 10px 20px;
+        background: $white;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px 0px lighten($color: black, $amount: 80%);
+
+        grid-template-areas:
+          "name startBtn"
+          "icon icon"
+          "details details";
+
+        .courseName {
+          grid-area: name;
+        }
+
+        .start {
+          grid-area: startBtn;
+          justify-self: end;
+          align-self: start;
+          border-radius: 50px;
+
+          button {
+            padding: 5px 30px;
+            border: none;
+            border-radius: 50px;
+            background: $red;
+            color: $white;
+            outline: none;
+            cursor: pointer;
+            transition: $transition;
+
+            &:active,
+            &:hover {
+              background: darken($red, 20%);
+            }
+          }
+        }
+
+        .progressBar {
+          grid-area: progressBar;
+          background: $lightgray;
+          height: 10px;
+          border-radius: 5px;
+          align-self: center;
+          width: 100%;
+          height: 20%;
+
+          >.progress {
+            border-radius: 5px;
+            height: 100%;
+            background: $yellow;
+          }
+        }
+
+        >.img {
+          grid-area: icon;
+          // background-image: url("https://www.profocustechnology.com/wp-content/uploads/2018/01/office-team-engineering-1080x675.jpg");
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+
+        .details {
+          display: grid;
+          grid-area: details;
+          grid-template-columns: auto auto 1fr;
+          color: $darkgray;
+          font-weight: 700;
+          font-size: 12px;
+          align-items: center;
+
+          .video,
+          .lessons {
+            margin-right: 15px;
+
+            >.icon {
+              font-size: 16px;
+              margin-right: 5px;
+            }
+          }
+
+          .achived {
+            justify-self: end;
+            // font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@include lg {
+  #courseSection {
+    #overview {
+      padding: 20px 6% 60px;
+    }
+
+    #lessons {
+      padding: 20px 6% 60px;
+
+    }
+
+  }
+}
+
+@include md {
+  #courseSection {
+
+    #overview {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "titleSection"
+        "details"
+        "level"
+        "description"
+        "skills"
+        "button"
+        "bar"
+      ;
+
+      .courseLevel {
+        justify-content: start;
+      }
+
+      .courseImg {
+        display: none;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 

@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+$yellow : #f8c925;
+$lightyellow : #ffedbb;
+$red : #f3564e;
+$blue : #3b6ef7;
+$lightgray : #f2f3f7;
+$darkgray : #5f5a68;
+$black : #31273d;
+$white : #ffffff;
+
+$transition: all 200ms ease-in-out;
+
+
+
+// Responsiveness
+// Breakpoints
+$sm : 566px;
+$md : 767px;
+$lg : 991px;
+$xl : 1198px;
+
+@mixin sm {
+  @media (max-width : #{$sm}) {
+    @content;
+
+  }
+}
+
+@mixin md {
+  @media (max-width : #{$md}) {
+    @content;
+
+  }
+}
+
+@mixin lg {
+  @media (max-width : #{$lg}) {
+    @content;
+
+  }
+}
+
+@mixin xl {
+  @media (max-width : #{$xl}) {
+    @content;
+
+  }
+}

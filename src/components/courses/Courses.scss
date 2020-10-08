@@ -1,0 +1,494 @@
+@import "../../Variables.scss";
+
+#courses {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  grid-template-rows: 80px 1fr;
+  min-height: 100vh;
+  grid-template-areas:
+    'navbar profile_bar'
+    'navbar main'
+  ;
+
+  >#coursesMain {
+    display: grid;
+    grid-area: main;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    align-content: start;
+    gap: 20px;
+    background: $lightgray;
+    padding: 50px 100px;
+
+    >.heading {
+      // margin-bottom: 10px;
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: center;
+
+      .coursesInProgress,
+      .coursesFeatured {
+        font-weight: 700;
+        color: black;
+        cursor: pointer;
+
+        &.active {
+          color: $darkgray;
+        }
+      }
+
+      .coursesFeatured {
+        margin-left: 40px;
+      }
+    }
+
+    .coursesWraper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, 350px);
+      align-content: start;
+      justify-content: start;
+      gap: 30px;
+
+      .courseCard {
+        display: grid;
+        grid-template-columns: 150px 150px;
+        grid-template-rows: 40px 100px 30px 30px;
+        width: fit-content;
+        gap: 10px;
+        margin: 10px;
+        padding: 10px 20px;
+        background: $white;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px 0px lighten($color: black, $amount: 80%);
+
+        grid-template-areas:
+          "name startBtn"
+          "icon icon"
+          "progressBar progressBar"
+          "details details";
+
+        .courseName {
+          grid-area: name;
+        }
+
+        .start {
+          grid-area: startBtn;
+          justify-self: end;
+          align-self: start;
+          border-radius: 50px;
+
+          button {
+            padding: 5px 30px;
+            border: none;
+            border-radius: 50px;
+            background: $red;
+            color: $white;
+            outline: none;
+            cursor: pointer;
+
+          }
+        }
+
+        .progressBar {
+          grid-area: progressBar;
+          background: $lightgray;
+          height: 10px;
+          border-radius: 5px;
+          align-self: center;
+          width: 100%;
+          height: 20%;
+
+          >.progress {
+            border-radius: 5px;
+            height: 100%;
+            background: $yellow;
+          }
+        }
+
+        >.image {
+          grid-area: icon;
+          height: 100%;
+          justify-self: end;
+          align-self: end;
+
+        }
+
+        .details {
+          display: grid;
+          grid-area: details;
+          grid-template-columns: auto auto 1fr;
+          color: $darkgray;
+          font-weight: 700;
+          font-size: 12px;
+          align-items: center;
+
+          .video,
+          .lessons {
+            margin-right: 15px;
+
+            >.icon {
+              font-size: 16px;
+              margin-right: 5px;
+            }
+          }
+
+          .achived {
+            justify-self: end;
+            // font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  #lesson {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 1fr minmax(200px, 300px);
+    align-content: start;
+    gap: 14px;
+    margin-left: 5px;
+    padding: 50px 100px 80px;
+    align-self: start;
+    grid-template-areas:
+      "header ."
+      "video transcript"
+      "tasks ask";
+
+    >.header {
+      grid-area: header;
+      display: grid;
+      margin-bottom: 30px;
+      grid-template-columns: 2fr 1fr;
+      grid-template-areas:
+        "lesson ."
+        "name ."
+        "description .";
+
+      .numberLesson {
+        grid-area: lesson;
+      }
+
+      .lessonName {
+        grid-area: name;
+        margin-bottom: 15px;
+      }
+
+      .lessonDescription {
+        grid-area: description;
+        font-size: 14px;
+        color: $darkgray;
+      }
+    }
+
+    >.videoLesonWrapper {
+      grid-area: video;
+      width: 100%;
+      height: 500px;
+      // background: $yellow;
+      border-radius: 10px;
+      box-shadow: 0px 0px 14px 0px lighten($color: black, $amount: 80%);
+      margin-bottom: 40px;
+
+      .videoLesson {
+        border: none;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+      }
+    }
+
+    >.transcriptWraper {
+      grid-area: transcript;
+      padding: 0 15px 10px 15px;
+      overflow: auto;
+      max-height: 500px;
+      margin-bottom: 20px;
+
+      h3 {
+        margin-bottom: 20px;
+      }
+
+      .transcript {
+        font-size: 14px;
+        font-weight: 600;
+
+        p {
+          margin-bottom: 16px;
+        }
+      }
+    }
+
+    >.tasksWraper {
+      box-shadow: 0px 0px 20px 0px lighten($color: black, $amount: 80%);
+
+      grid-area: tasks;
+      display: grid;
+      width: 100%;
+      padding: 40px 40px;
+      background-color: $white;
+      border-radius: 16px;
+      justify-items: start;
+
+      h3 {
+        margin-bottom: 16px;
+      }
+
+      .taskQuestion {
+        font-weight: 700;
+        margin-bottom: 26px;
+      }
+
+      .options {
+        margin-bottom: 8px;
+
+        input[type="radio"] {
+          visibility: hidden;
+          cursor: pointer;
+        }
+
+        .option {
+          display: grid;
+          list-style: none;
+          margin-bottom: 16px;
+          align-items: start;
+          justify-items: start;
+          justify-content: start;
+          grid-auto-columns: auto;
+          grid-auto-flow: column;
+          cursor: pointer;
+
+          .radioBtn {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: transparent;
+            border: 3px solid darken($color: $lightgray, $amount: 20%);
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+            margin-right: 12px;
+
+            &[check="true"] {
+              border: 3px solid $red;
+
+              &::before {
+                content: "";
+                background: $red;
+                width: 10px;
+                height: 10px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                border-radius: 50%;
+
+                transform: translate(-50%, -50%);
+              }
+            }
+          }
+
+          p {
+            display: inline-block;
+          }
+        }
+      }
+
+      button {
+        padding: 5px 30px;
+        border: none;
+        border-radius: 50px;
+        background: $red;
+        color: $white;
+        outline: none;
+        cursor: pointer;
+        transition: $transition;
+
+        &:active,
+        &:hover {
+          background: darken($red, 20%);
+        }
+      }
+    }
+
+    >.askWraper {
+      grid-area: ask;
+      align-self: end;
+      width: 100%;
+      border-radius: 10px;
+      grid-template-columns: auto auto 1fr;
+      background-color: $white;
+      display: grid;
+      grid-template-areas:
+        "img  name      btn"
+        "img  position  btn";
+      padding: 10px 20px;
+      box-shadow: 0px 0px 20px 0px lighten($color: black, $amount: 80%);
+
+      .img {
+        grid-area: img;
+        width: 40px;
+        height: 40px;
+        background-color: $yellow;
+        border-radius: 50%;
+        margin-right: 20px;
+        background-position: center;
+        background-size: cover;
+      }
+
+      .name {
+        grid-area: name;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .position {
+        grid-area: position;
+        font-size: 14px;
+        color: $darkgray;
+        font-weight: 600;
+      }
+
+      button {
+        grid-area: btn;
+        padding: 5px 30px;
+        border: none;
+        border-radius: 50px;
+        background: $blue;
+        color: $white;
+        outline: none;
+        cursor: pointer;
+        transition: $transition;
+        justify-self: end;
+        align-self: center;
+
+        &:active,
+        &:hover {
+          background: darken($blue, 30%);
+        }
+      }
+    }
+  }
+}
+
+@include xl {
+  #courses {
+    #lesson {
+      padding: 50px 20px 80px 50px;
+
+      .header {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}
+
+
+@include lg {
+  #courses {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'profile_bar'
+      'main'
+    ;
+
+    #coursesMain {
+      padding: 4% 7%;
+    }
+
+    #coursesMain {
+      grid-template-columns: 1fr;
+      grid-auto-rows: auto;
+      grid-template-areas:
+        'heading'
+        'courseWraper'
+      ;
+    }
+
+    #lesson {
+      grid-row: 2/-1;
+      grid-column: 1/-1;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-content: start;
+      padding: 4% 7%;
+      align-self: start;
+      grid-template-areas:
+        'header'
+        'video'
+        'tasks'
+        'transcript'
+        'ask';
+
+      .header {
+        grid-template-columns: 1fr;
+      }
+
+      .transcriptWraper {
+        max-height: 300px;
+      }
+    }
+  }
+}
+
+@include md {
+  #courses {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'profile_bar'
+      'main'
+    ;
+
+
+    #coursesMain {
+      grid-template-columns: 1fr;
+      grid-auto-rows: auto;
+      grid-template-areas:
+        'heading'
+        'courseWraper'
+      ;
+    }
+
+    #lesson {
+      grid-row: 2/-1;
+      grid-column: 1/-1;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-content: start;
+      padding: 4% 7%;
+      align-self: start;
+      grid-template-areas:
+        'header'
+        'video'
+        'tasks'
+        'transcript'
+        'ask';
+
+      .header {
+        grid-template-columns: 1fr;
+      }
+
+      .transcriptWraper {
+        max-height: 300px;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 

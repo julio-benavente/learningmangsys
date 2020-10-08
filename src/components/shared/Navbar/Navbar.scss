@@ -1,0 +1,120 @@
+@import "../../../Variables.scss";
+
+.navbar {
+    grid-area: navbar;
+    background: $white;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto-fit, 80px);
+    justify-items: center;
+    align-items: center;
+    position: relative;
+
+    >.logo,
+    >.navItem {
+        position: relative;
+        // width: 50px;
+        // height: 50px;
+        // border-radius: 50%;
+        // background: $lightgray;
+
+    }
+
+    &>.logo {
+        position: relative;
+        background: $red;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+
+        .icon {
+            font-size: 20px;
+            position: relative;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            color: $white;
+        }
+    }
+
+    &>.navItem {
+        margin-bottom: 20px;
+
+        &>.navLink {
+            outline: none;
+            position: relative;
+            display: grid;
+            grid-template-columns: auto;
+
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+
+
+            >.icon {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background: $lightgray;
+                font-size: 20px;
+                position: relative;
+                color: $darkgray;
+                transition: $transition;
+
+                &::before {
+                    position: absolute;
+                    transform: translate(-50%, -50%);
+                    top: 50%;
+                    left: 50%;
+                }
+
+            }
+
+            p {
+                outline: none;
+                display: none;
+                color: $darkgray;
+                font-weight: bold;
+                transition: $transition;
+            }
+
+            &:hover,
+            &.active {
+                >.icon {
+                    color: $red;
+                }
+
+                >p {
+                    color: $red;
+                }
+            }
+        }
+    }
+}
+
+
+@include md {
+    .navbar {
+        position: absolute;
+        padding-top: 80px;
+        width: 100%;
+        z-index: 5;
+
+        .logo {
+
+            display: none;
+        }
+
+        >.navItem {
+            .navLink {
+                grid-template-columns: 50px 100px;
+
+                p {
+                    display: inline-block;
+                }
+            }
+        }
+
+
+    }
+}
